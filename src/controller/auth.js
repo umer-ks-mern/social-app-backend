@@ -21,8 +21,6 @@ const loginController = {
         algorithm: process.env.ALGO,
         expiresIn: "24h",
       });
-
-      // show the name of user being logged in and Welcome him.
       loginEmail(user);
 
       return res.json({ message: "Login Successful !!", token: token });
