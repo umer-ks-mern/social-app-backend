@@ -14,12 +14,12 @@ const likeController = {
     let result = post.likes.findIndex((elem) => elem.user_id == user_id);
     console.log(user_id);
     console.log(result);
-
+    //-1 here means that the array is empty meaning that user did not liked this post so add one like
     if (result == -1) {
       post.likes.push({ user_id });
       await post.save();
       return res.json({ message: "1 Like added", post });
-    } else {
+    } else {  //if user has already liked the post remove the like 
       post.likes.splice(result, 1);
       await post.save();
       return res.json({ message: "1 Like removed", post });
